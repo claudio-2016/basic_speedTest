@@ -46,17 +46,17 @@ A continuacion se detalla el set de variables y referencias:
 
 MySql (base de datos)
 
-ROOT_PASS=securerootpassword -> contraseña para el usuario root
-DB_NAME=db -> nombre de la base de datos                  
-DB_USER=dbuser -> usuario 
-PASS=secret -> contraseña, es RECOMENDABLE QUE MODIFIQUE ESTO
-TIME_ZONE=America/Argentina/Buenos_Aires -> zona horaria
+ROOT_PASS=securerootpassword (contraseña para el usuario root)
+DB_NAME=db (nombre de la base de datos)
+DB_USER=dbuser (usuario)
+PASS=secret (contraseña, es RECOMENDABLE QUE MODIFIQUE ESTO)
+TIME_ZONE=America/Argentina/Buenos_Aires (zona horaria)
 
 
 
 speedtest cli
 
-TIME_SPEEDTEST=10 -> cada cuanto tiempo se realizara la medicion (en minutos)
+TIME_SPEEDTEST=10 (cada cuanto tiempo se realizara la medicion (en minutos))
 
 
 
