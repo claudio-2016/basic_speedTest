@@ -1,0 +1,64 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: db
+-- Tiempo de generación: 17-10-2024 a las 12:15:02
+-- Versión del servidor: 9.1.0
+-- Versión de PHP: 8.2.23
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `speed_test`
+--
+
+CREATE TABLE `speed_test` (
+  `id` int NOT NULL,
+  `serverName` varchar(100) NOT NULL,
+  `isp` varchar(100) NOT NULL,
+  `download` float NOT NULL,
+  `upload` float NOT NULL,
+  `packetLoss` float NOT NULL,
+  `url` varchar(150) NOT NULL,
+  `created_register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `speed_test`
+--
+ALTER TABLE `speed_test`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `speed_test`
+--
+ALTER TABLE `speed_test`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,49 @@
+services:                                                                                                                                         
+                                                                                                                                                  
+  db:
+    image: mysql:9.1
+    container_name: db
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${ROOT_PASS}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${PASS}
+      - TZ=${TIME_ZONE}
+
+  speed-test:
+    env_file:
+      - .env
+    build:
+      context: '.' 
+      dockerfile: speedTest
+    container_name: speed 
+    restart: always
+    depends_on:
+      - db
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    user: '0'
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASS}
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/basicdashboard.json
+      - GF_DB_USER=${DB_USER}
+      - GF_DB_PASS=${PASS}
+      - GF_DB_NAME=${DB_NAME}
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    ports:
+      - ${GF_PORT}:3000
+
+
+volumes:
+  db-data:
