@@ -67,7 +67,9 @@ TIME_SPEEDTEST=10 (cada cuanto tiempo se realizara la medicion (en minutos))
 Grafana
 
 GRAFANA_USER=gfuser -> usuario pordefecto para ingresar al panel, puede modificarlo por uno de su agrado.
+
 GRAFANA_PASS=gfsecret -> contraseña por defecto, se recomienda modificarla.
+
 GF_PORT=3001 -> puerto por defecto donde Grafana es invocado desde su navegador. 
 
 Ej: http://localhost:3001 -> si lo esta corriendo en su maquina.
